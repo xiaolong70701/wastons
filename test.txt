@@ -1,0 +1,109 @@
+Search Products Info: 0Product [00:00, ?Product/s]{'Specification': '4g', 'Dimensions': '2.2x2.2x7cm', 'Weight': '4 g'}
+{'Specification': '4.8g', 'Dimensions': '9x2x7.5cm', 'Weight': '4.8 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '4g', 'Dimensions': '2.2x2.2x7cm', 'Weight': '4 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '單支', 'Dimensions': '2.2x1.8x8.5cm', 'Weight': '1.5 g'}
+{'Specification': '3.6g', 'Dimensions': '2.1x5.5x7.4cm', 'Weight': '22 g'}
+{'Specification': '10g', 'Dimensions': '0.1x7.6x12.7cm', 'Weight': '10 g'}
+{'Specification': '', 'Dimensions': '1.5x7x12cm', 'Weight': '4.8 g'}
+{'Specification': '7.5g', 'Dimensions': '12.8x7.6x3cm', 'Weight': '7 g'}
+{'Specification': '1', 'Dimensions': '13.4x1.8x7.2cm', 'Weight': '4.5 g'}
+{'Specification': '4g', 'Dimensions': '2x7.6x12.5cm', 'Weight': '4 g'}
+{'Specification': '1.5g *3', 'Dimensions': '', 'Weight': ''}
+{'Specification': '15ml', 'Dimensions': '', 'Weight': ''}
+{'Specification': '4.8g', 'Dimensions': '9x2x10.4cm', 'Weight': '4.8 g'}
+{'Specification': '3.9g', 'Dimensions': '5.2x5.2x9.5cm', 'Weight': '3.9 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3.5g', 'Dimensions': '20x20x73cm', 'Weight': '27 g'}
+{'Specification': '1', 'Dimensions': '13.4x1.8x7.2cm', 'Weight': '4.5 g'}
+{'Specification': '4.8g', 'Dimensions': '1.3x8.3x12cm', 'Weight': '4.8 g'}
+{'Specification': '', 'Dimensions': '12.7x7.6x2.3cm', 'Weight': '15 g'}
+{'Specification': '4.25g', 'Dimensions': '7.8x1.8x12.2cm', 'Weight': '4.25 g'}
+{'Specification': '4.8g', 'Dimensions': '9x2x10.4cm', 'Weight': '4.8 g'}
+{'Specification': '3.7公克', 'Dimensions': '7.8x2.1x12.2cm', 'Weight': '3.7 g'}
+{'Specification': '3.9g', 'Dimensions': '5.2x5.2x9.5cm', 'Weight': '3.9 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '9g*2', 'Dimensions': '', 'Weight': ''}
+{'Specification': '4.8gm', 'Dimensions': '7.5x2x12cm', 'Weight': '4.8 g'}
+{'Specification': '4.8g', 'Dimensions': '2x7.5x12cm', 'Weight': '100 g'}
+{'Specification': '12ml', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3.7g', 'Dimensions': '2.1x5.5x7.4cm', 'Weight': '22 g'}
+Search Products Info:  31%|███       | 33/107 [00:06<00:14,  4.96Product/s]{'Specification': '12ml*2', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3g', 'Dimensions': '', 'Weight': ''}
+{'Specification': '12ml', 'Dimensions': '', 'Weight': ''}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '4.8g', 'Dimensions': '1.8x7.5x12cm', 'Weight': '4.8 g'}
+{'Specification': '1.6gx10', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3g', 'Dimensions': '2.4x2.7x9cm', 'Weight': '27.5 g'}
+{'Specification': '12ml*2', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3.7g*3', 'Dimensions': '', 'Weight': ''}
+{'Specification': '4.8G', 'Dimensions': '2.2x7.5x12cm', 'Weight': '4.8 g'}
+{'Specification': '', 'Dimensions': '2x8x12cm', 'Weight': '8 g'}
+{'Specification': '12ml', 'Dimensions': '', 'Weight': ''}
+{'Specification': '5g', 'Dimensions': '2x8.5x12.5cm', 'Weight': '19 g'}
+{'Specification': '5g', 'Dimensions': '2x8.5x12.5cm', 'Weight': '19 g'}
+{'Specification': '5g', 'Dimensions': '2x8.5x12.5cm', 'Weight': '19 g'}
+{'Specification': '3.7g', 'Dimensions': '2.1x5.5x7.4cm', 'Weight': '22 g'}
+{'Specification': '5g', 'Dimensions': '2x8.5x12.5cm', 'Weight': '19 g'}
+{'Specification': '5g', 'Dimensions': '2x8.5x12.5cm', 'Weight': '19 g'}
+{'Specification': '3.8g', 'Dimensions': '2.2x8x11.4cm', 'Weight': '3.8 g'}
+{'Specification': '4.8G', 'Dimensions': '2.2x7.5x12cm', 'Weight': '4.8 g'}
+{'Specification': '8.5g', 'Dimensions': '8.3x11.4x2.7cm', 'Weight': '8.5 g'}
+{'Specification': '3.5G', 'Dimensions': '2x9x10cm', 'Weight': '3.5 g'}
+{'Specification': '4.25g', 'Dimensions': '7.8x1.8x12.2cm', 'Weight': '4.25 g'}
+{'Specification': '1入', 'Dimensions': '2x8x12cm', 'Weight': '4.8 g'}
+{'Specification': '3.8g', 'Dimensions': '2.2x8x11.4cm', 'Weight': '3.8 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '3.7 g'}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '3.7 g'}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '3.7 g'}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '21 g'}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '21 g'}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '3.7 g'}
+Search Products Info:  61%|██████    | 65/107 [00:12<00:08,  5.04Product/s]{'Specification': '', 'Dimensions': '2x2x10.3cm', 'Weight': '9 g'}
+{'Specification': '6.8g', 'Dimensions': '3.4x3.3x3.4cm', 'Weight': '21 g'}
+{'Specification': '6.8g', 'Dimensions': '3.4x3.3x3.4cm', 'Weight': '20 g'}
+{'Specification': '', 'Dimensions': '2x2x10.3cm', 'Weight': '9 g'}
+{'Specification': '6.8g', 'Dimensions': '3.5x3x3.5cm', 'Weight': '21 g'}
+{'Specification': '4.3g', 'Dimensions': '7.9x2.4x7.9cm', 'Weight': '19 g'}
+{'Specification': '3.4g', 'Dimensions': '2x2x7.8cm', 'Weight': '18 g'}
+{'Specification': '2.8gx1', 'Dimensions': '', 'Weight': ''}
+{'Specification': '4.5g', 'Dimensions': '6.9x1.7x10.9cm', 'Weight': '4.5 g'}
+{'Specification': '4.5g', 'Dimensions': '6.9x1.7x10.9cm', 'Weight': '4.5 g'}
+{'Specification': '3.4g', 'Dimensions': '2x2x7.8cm', 'Weight': '18 g'}
+{'Specification': '1.7g', 'Dimensions': '2.3x7x13cm', 'Weight': '1.7 g'}
+{'Specification': '1.7g', 'Dimensions': '2.3x7x13cm', 'Weight': '1.7 g'}
+{'Specification': '4.5g', 'Dimensions': '6.9x1.7x10.9cm', 'Weight': '4.5 g'}
+{'Specification': '4.7g', 'Dimensions': '', 'Weight': ''}
+{'Specification': '1.7g*2', 'Dimensions': '2.3x7x13cm', 'Weight': '18.95 g'}
+{'Specification': '3g', 'Dimensions': '1.5x7.5x12cm', 'Weight': '3 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3g', 'Dimensions': '1.5x7.5x12cm', 'Weight': '3 g'}
+{'Specification': '4.5g', 'Dimensions': '', 'Weight': ''}
+{'Specification': '1入', 'Dimensions': '2x8x11cm', 'Weight': '5.2 g'}
+{'Specification': '1.8G', 'Dimensions': '6.6x1.3x11cm', 'Weight': '1.8 g'}
+{'Specification': '5.2g', 'Dimensions': '2x8x11cm', 'Weight': '5.2 g'}
+{'Specification': '1.3g', 'Dimensions': '1.2x1.2x11.5cm', 'Weight': '11 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '1.3g', 'Dimensions': '1.2x1.2x11.5cm', 'Weight': '11 g'}
+{'Specification': '1.3g', 'Dimensions': '1.2x1.2x11.5cm', 'Weight': '11 g'}
+{'Specification': '1.3g', 'Dimensions': '1.2x1.2x11.5cm', 'Weight': '11 g'}
+{'Specification': '1.3g', 'Dimensions': '1.2x1.2x11.5cm', 'Weight': '11 g'}
+{'Specification': '6.8g', 'Dimensions': '3.4x3.3x3.4cm', 'Weight': '22 g'}
+{'Specification': '6.8g', 'Dimensions': '3.4x3.3x3.4cm', 'Weight': '22 g'}
+{'Specification': '6.8g', 'Dimensions': '3.4x3.3x3.4cm', 'Weight': '22 g'}
+Search Products Info:  91%|█████████ | 97/107 [00:19<00:02,  4.82Product/s]{'Specification': '4.5g', 'Dimensions': '1.5x7.5x12.5cm', 'Weight': '4.5 g'}
+{'Specification': '3.3g', 'Dimensions': '2.1x7.2x12.5cm', 'Weight': '3.3 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3.5g', 'Dimensions': '2x8x12.1cm', 'Weight': '3.5 g'}
+{'Specification': '4.5g', 'Dimensions': '1.5x7.5x12.5cm', 'Weight': '4.5 g'}
+{'Specification': '3.3g', 'Dimensions': '1.5x8x13cm', 'Weight': '3.3 g'}
+{'Specification': '4.5g', 'Dimensions': '1.5x7.5x12.5cm', 'Weight': '4.5 g'}
+{'Specification': '', 'Dimensions': '', 'Weight': ''}
+{'Specification': '1.6g', 'Dimensions': '', 'Weight': ''}
+{'Specification': '3.7g', 'Dimensions': '2.1x5.5x7.4cm', 'Weight': '22 g'}
+{'Specification': '3.7G', 'Dimensions': '1.9x1.9x8.8cm', 'Weight': '3.7 g'}
+Search Products Info: 100%|██████████| 107/107 [00:25<00:00,  4.16Product/s]No more products available. Ending scraping.
+Saved 107 products to ./data/Watsons_護唇膏.csv

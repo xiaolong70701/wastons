@@ -2,7 +2,10 @@ import os
 import time
 import requests
 import csv
+import random
 from tqdm import tqdm
+from bs4 import BeautifulSoup
+from concurrent.futures import ThreadPoolExecutor
 from seleniumwire import webdriver
 from selenium.webdriver.edge.service import Service
 
@@ -18,13 +21,12 @@ class WatsonsScraper:
         self.query = query
         self.page_size = page_size
         self.edge_path = edge_path
-        self.save_folder = save_folder  # Default to ./data
+        self.save_folder = save_folder
         self.authorization_token = None
         self.pim_session_id = None
-        self.products = []  # Stores scraped products
+        self.products = []
 
-        # Ensure the save folder exists
-        os.makedirs(self.save_folder, exist_ok=True)  # Create the folder if it doesn't exist
+        os.makedirs(self.save_folder, exist_ok=True)
 
     def get_auth_and_pim(self):
         """
@@ -36,37 +38,32 @@ class WatsonsScraper:
 
         site_url = f"https://www.watsons.com.tw/search?text={self.query}"
         driver.get(site_url)
-        time.sleep(10)  # Wait for API requests to be made
+        time.sleep(10)
 
-        # Variables to store the retrieved credentials
-        authorization_token = None
-        pim_session_id = None
+        authorization_token, pim_session_id = None, None
 
-        # Extract headers from API requests
-        for request in driver.requests[::-1]:  # Iterate from the latest request
+        for request in driver.requests[::-1]:
             if "api.watsons.com.tw/api/v2/" in request.url:
                 headers = request.headers
                 if "Authorization" in headers:
                     authorization_token = headers["Authorization"]
-                    break  # Use the latest found Authorization
+                    break
 
-        # Retrieve PIM-SESSION-ID from cookies
         for cookie in driver.get_cookies():
             if cookie["name"] == "PIM-SESSION-ID":
                 pim_session_id = cookie["value"]
 
         driver.quit()
 
-        # Ensure the authorization token is correctly formatted
         if authorization_token:
-            authorization_token = authorization_token.split()[1]  # Extract token value after "Bearer"
+            authorization_token = authorization_token.split()[1]
 
         self.authorization_token = authorization_token
         self.pim_session_id = pim_session_id
 
     def get_products(self):
         """
-        Uses requests to retrieve product information from Watsons API.
+        Uses requests to retrieve product information from Watsons API and extracts product specifications.
         """
         if not self.authorization_token or not self.pim_session_id:
             print("Missing Authorization token or PIM-SESSION-ID. Unable to proceed.")
@@ -87,15 +84,13 @@ class WatsonsScraper:
         base_url = "https://api.watsons.com.tw/api/v2/wtctw/products/search"
         all_products = []
         current_page = 0
-        total_products = None  # Used for progress bar initialization
+        total_products = None
 
-        with tqdm(desc="Search Products Info", unit="Product", dynamic_ncols=True) as pbar:
+        with tqdm(desc="Search Products Info", unit="Product", dynamic_ncols=True) as pbar, ThreadPoolExecutor(max_workers=5) as executor:
             while True:
-                # Construct API URL
                 api_url = f"{base_url}?fields=FULL&query={self.query}&pageSize={self.page_size}&currentPage={current_page}&sort=mostRelevant&brandRedirect=true&ignoreSort=false&lang=zh_TW&curr=TWD"
                 response = session.get(api_url)
 
-                # Handle API request failure
                 if response.status_code != 200:
                     print(f"API request failed with status code: {response.status_code}")
                     break
@@ -107,33 +102,98 @@ class WatsonsScraper:
                     print("No more products available. Ending scraping.")
                     break
 
-                # Update total product count for tqdm (only set once)
                 if total_products is None:
                     total_products = data.get("pagination", {}).get("totalResults", len(products))
-                    pbar.total = total_products  # Set total products in tqdm progress bar
+                    pbar.total = total_products
 
-                # Extract product information
+                # Create product list
+                product_list = []
+                future_to_product = {}
+
                 for product in products:
                     name = product.get("name", "No Name")
                     price = product.get("price", {}).get("value", "No Price")
                     img_url = product.get("images", [{}])[0].get("url", "No Image")
                     product_url = f"https://www.watsons.com.tw/{product.get('url', '')}"
 
-                    all_products.append({
+                    # Create product dictionary
+                    product_data = {
                         "Name": name,
                         "Price": price,
                         "Image URL": img_url,
                         "Product Link": product_url,
-                    })
+                        "Specification": "",
+                        "Dimensions": "",
+                        "Weight": "",
+                    }
 
-                    pbar.update(1)  # Update progress bar
+                    product_list.append(product_data)
+
+                    # Use multihthreadings
+                    future = executor.submit(self.get_product_specs, product_url, headers)
+                    future_to_product[future] = product_data
+
+                    pbar.update(1)
+
+                # Get product info
+                for future in future_to_product:
+                    spec_data = future.result()
+                    product = future_to_product[future]
+                    product["Specification"] = spec_data["Specification"]
+                    product["Dimensions"] = spec_data["Dimensions"]
+                    product["Weight"] = spec_data["Weight"]
+
+                all_products.extend(product_list)
 
                 current_page += 1
-                time.sleep(1)  # Pause between requests to prevent rate limiting
+                time.sleep(random.uniform(1, 3))
 
-        self.products = all_products  # Store for later use
-        return all_products
+            self.products = all_products
+            return all_products
 
+    def get_product_specs(self, product_url, headers):
+        """
+        Retrieves product specifications from the product page.
+        Extracts "規格", "深、寬、高", and "淨重" as separate fields.
+        If a field is missing, it returns an empty string instead of "N/A".
+
+        :param product_url: The URL of the product page.
+        :param headers: HTTP headers (same as get_products).
+        :return: A dictionary with "Specification", "Dimensions", and "Weight".
+        """
+        try:
+            response = requests.get(product_url, headers=headers)
+            if response.status_code != 200:
+                print(f"Failed to retrieve product page: {product_url} (Status code: {response.status_code})")
+                return {"Specification": "", "Dimensions": "", "Weight": ""}
+
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            # Find Specification sheet
+            spec_table = soup.find("table", class_="ecTable")
+            if not spec_table:
+                return {"Specification": "", "Dimensions": "", "Weight": ""}
+
+            specs = {"Specification": "", "Dimensions": "", "Weight": ""}
+            for row in spec_table.find_all("tr"):
+                cols = row.find_all("td")
+                if len(cols) == 2:
+                    key = cols[0].text.strip()
+                    value = cols[1].text.strip()
+
+                    if key == "規格":
+                        specs["Specification"] = value
+                    elif key == "深、寬、高":
+                        specs["Dimensions"] = value
+                    elif key == "淨重":
+                        specs["Weight"] = value
+
+            return specs
+
+        except Exception as e:
+            print(f"Error retrieving specifications for {product_url}: {e}")
+            return {"Specification": "", "Dimensions": "", "Weight": ""}
+        
     def save_to_csv(self):
         """
         Saves the scraped product data to a CSV file inside the specified folder.
@@ -141,9 +201,9 @@ class WatsonsScraper:
         if not self.products:
             print("No products to save. Run the scraper first.")
             return
-        
-        filename = os.path.join(self.save_folder, f"Watsons_{self.query}.csv")  # Save to the specified folder
-        keys = self.products[0].keys()  # Get column names
+
+        filename = os.path.join(self.save_folder, f"Watsons_{self.query}.csv")
+        keys = ["Name", "Price", "Image URL", "Product Link", "Specification", "Dimensions", "Weight"]
 
         with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=keys)
