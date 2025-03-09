@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="wastons",
+    name="Wastons Products Info Scraper",
     version="0.1",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Anthony Sung",
+    author_email="xiaolong70701@gmail.com",
     description="A web scraper for Watsons Taiwan products",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
